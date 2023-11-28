@@ -14,6 +14,6 @@ class GameConfigurationTest {
         assertEquals(5, instance.maxPartySize);
         instance.maxPartySize = 10;
         GameConfiguration otherInstance = getInstance();
-        assertEquals(10, instance.maxPartySize);
+        assertEquals(10, otherInstance.maxPartySize);
     }
 }
