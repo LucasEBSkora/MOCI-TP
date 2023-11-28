@@ -1,4 +1,4 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.armor;
 
 public class Shield extends Armor {
     public Shield(String name, int defense) {

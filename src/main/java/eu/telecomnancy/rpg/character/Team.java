@@ -1,4 +1,4 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.character;
 
 import java.util.ArrayList;
 import java.util.Collection;

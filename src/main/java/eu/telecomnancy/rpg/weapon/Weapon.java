@@ -1,4 +1,4 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.weapon;
 
 public class Weapon {
     public String name;

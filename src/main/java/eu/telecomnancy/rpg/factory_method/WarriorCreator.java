@@ -1,4 +1,10 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.factory_method;
+
+import eu.telecomnancy.rpg.armor.Helmet;
+import eu.telecomnancy.rpg.armor.Shield;
+import eu.telecomnancy.rpg.character.GameCharacter;
+import eu.telecomnancy.rpg.character.Warrior;
+import eu.telecomnancy.rpg.weapon.Sword;
 
 public class WarriorCreator implements CharacterCreator {
     @Override

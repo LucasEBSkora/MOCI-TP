@@ -1,5 +1,8 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.character;
 
+import eu.telecomnancy.rpg.armor.Armor;
+import eu.telecomnancy.rpg.visitor.CharacterVisitor;
+import eu.telecomnancy.rpg.weapon.Weapon;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,7 +19,7 @@ public abstract class GameCharacter {
     public int level;
 
     public Weapon weapon;
-    ArrayList<Armor> armor;
+    public ArrayList<Armor> armor;
     public GameCharacter(String name) {
         this.name = name;
         this.experiencePoints = 0;
@@ -24,4 +27,6 @@ public abstract class GameCharacter {
 
         armor = new ArrayList<>();
     }
+
+    public abstract void accept(CharacterVisitor V);
 }

@@ -1,8 +1,9 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.singleton;
 
+import eu.telecomnancy.rpg.singleton.GameConfiguration;
 import org.junit.jupiter.api.Test;
 
-import static eu.telecomnancy.rpg.GameConfiguration.*;
+import static eu.telecomnancy.rpg.singleton.GameConfiguration.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameConfigurationTest {

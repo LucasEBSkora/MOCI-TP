@@ -1,4 +1,9 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.factory_method;
+
+import eu.telecomnancy.rpg.character.GameCharacter;
+import eu.telecomnancy.rpg.armor.Robe;
+import eu.telecomnancy.rpg.weapon.Staff;
+import eu.telecomnancy.rpg.character.Wizard;
 
 public class WizardCreator implements CharacterCreator {
 

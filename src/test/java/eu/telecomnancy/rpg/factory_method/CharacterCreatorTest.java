@@ -1,5 +1,18 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.factory_method;
 
+import eu.telecomnancy.rpg.armor.Helmet;
+import eu.telecomnancy.rpg.armor.Robe;
+import eu.telecomnancy.rpg.armor.Shield;
+import eu.telecomnancy.rpg.character.GameCharacter;
+import eu.telecomnancy.rpg.character.Healer;
+import eu.telecomnancy.rpg.character.Warrior;
+import eu.telecomnancy.rpg.character.Wizard;
+import eu.telecomnancy.rpg.factory_method.CharacterCreator;
+import eu.telecomnancy.rpg.factory_method.HealerCreator;
+import eu.telecomnancy.rpg.factory_method.WarriorCreator;
+import eu.telecomnancy.rpg.factory_method.WizardCreator;
+import eu.telecomnancy.rpg.weapon.Staff;
+import eu.telecomnancy.rpg.weapon.Sword;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +35,7 @@ class CharacterCreatorTest {
     void createWizard() {
         CharacterCreator creator = new WizardCreator();
         GameCharacter playerCharacter = creator.createCharacter("Thomas", 5, true, true);
-        assertTrue(playerCharacter instanceof  Wizard);
+        assertTrue(playerCharacter instanceof Wizard);
         assertEquals("Thomas", playerCharacter.name);
         assertEquals(5, playerCharacter.level);
         assertEquals(30, playerCharacter.health);
@@ -35,7 +48,7 @@ class CharacterCreatorTest {
     void createWarrior() {
         CharacterCreator creator = new WarriorCreator();
         GameCharacter playerCharacter = creator.createCharacter("Jerry", 20, true, true);
-        assertTrue(playerCharacter instanceof  Warrior);
+        assertTrue(playerCharacter instanceof Warrior);
         assertEquals("Jerry", playerCharacter.name);
         assertEquals(20, playerCharacter.level);
         assertEquals(200, playerCharacter.health);

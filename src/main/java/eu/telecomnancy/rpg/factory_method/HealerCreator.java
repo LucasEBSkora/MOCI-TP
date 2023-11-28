@@ -1,4 +1,8 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.factory_method;
+
+import eu.telecomnancy.rpg.character.GameCharacter;
+import eu.telecomnancy.rpg.character.Healer;
+import eu.telecomnancy.rpg.weapon.Staff;
 
 public class HealerCreator implements CharacterCreator {
     @Override

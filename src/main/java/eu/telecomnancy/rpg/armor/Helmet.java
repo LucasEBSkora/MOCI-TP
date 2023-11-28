@@ -1,4 +1,4 @@
-package eu.telecomnancy.rpg;
+package eu.telecomnancy.rpg.armor;
 
 public class Helmet extends Armor {
     public Helmet(String name, int defense) {
