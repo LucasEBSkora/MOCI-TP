@@ -8,6 +8,7 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/*
 *.iws
 *.iml
 *.ipr
@@ -36,3 +37,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/Sujet de TP _ Construction dun jeu de rôle simple avec design patterns.pdf
