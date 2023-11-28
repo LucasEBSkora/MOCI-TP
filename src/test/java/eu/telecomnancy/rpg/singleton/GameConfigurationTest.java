@@ -1,6 +1,5 @@
 package eu.telecomnancy.rpg.singleton;
 
-import eu.telecomnancy.rpg.singleton.GameConfiguration;
 import org.junit.jupiter.api.Test;
 
 import static eu.telecomnancy.rpg.singleton.GameConfiguration.*;

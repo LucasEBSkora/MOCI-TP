@@ -2,8 +2,6 @@ package eu.telecomnancy.rpg.character;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import eu.telecomnancy.rpg.character.Team;
-import eu.telecomnancy.rpg.character.Wizard;
 import org.junit.jupiter.api.Test;
 
 class TeamTest {
