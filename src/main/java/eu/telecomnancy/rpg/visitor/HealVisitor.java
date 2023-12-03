@@ -4,7 +4,7 @@ import eu.telecomnancy.rpg.character.Healer;
 import eu.telecomnancy.rpg.character.Warrior;
 import eu.telecomnancy.rpg.character.Wizard;
 
-public class HealVisitor implements CharacterVisitor {
+public class HealVisitor extends CharacterVisitor {
 
     private final int healAmount;
 

@@ -1,11 +1,17 @@
 package eu.telecomnancy.rpg.visitor;
 
-import eu.telecomnancy.rpg.character.Healer;
-import eu.telecomnancy.rpg.character.Warrior;
-import eu.telecomnancy.rpg.character.Wizard;
+import eu.telecomnancy.rpg.character.*;
 
-public interface CharacterVisitor {
-    void visitWizard(Wizard character);
-    void visitWarrior(Warrior character);
-    void visitHealer(Healer character);
+public abstract class CharacterVisitor {
+    abstract public void visitWizard(Wizard character);
+
+    abstract public void visitWarrior(Warrior character);
+
+    abstract public void visitHealer(Healer character);
+
+    void visitTeam(Team team) {
+        for (GameCharacter member : team.getPlayers()) {
+            member.accept(this);
+        }
+    }
 }

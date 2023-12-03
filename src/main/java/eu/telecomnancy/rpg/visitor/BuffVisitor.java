@@ -4,7 +4,7 @@ import eu.telecomnancy.rpg.character.Healer;
 import eu.telecomnancy.rpg.character.Warrior;
 import eu.telecomnancy.rpg.character.Wizard;
 
-public class  BuffVisitor implements CharacterVisitor {
+public class BuffVisitor extends CharacterVisitor {
 
     private final int intensity;
 
