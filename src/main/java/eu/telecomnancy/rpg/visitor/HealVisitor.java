@@ -24,6 +24,6 @@ public class HealVisitor extends CharacterVisitor {
 
     @Override
     public void visitHealer(Healer character) {
-        character.setHealth(character.getHealth() + healAmount*2/3);
+        character.setHealth(character.getHealth() + healAmount * 2 / 3);
     }
 }

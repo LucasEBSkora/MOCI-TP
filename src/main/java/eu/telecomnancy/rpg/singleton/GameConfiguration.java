@@ -1,10 +1,9 @@
 package eu.telecomnancy.rpg.singleton;
 
 public class GameConfiguration {
+    private static GameConfiguration singleInstance;
     public int difficulty;
     public int maxPartySize;
-
-    private static GameConfiguration singleInstance;
 
     private GameConfiguration(int difficulty, int maxPartySize) {
         this.difficulty = difficulty;

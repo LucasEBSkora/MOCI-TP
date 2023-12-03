@@ -1,9 +1,9 @@
 package eu.telecomnancy.rpg.character;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.Collection;
-
-import lombok.Getter;
 
 public class Team {
     @Getter
@@ -14,7 +14,7 @@ public class Team {
 
     public Team(String name) {
         this.name = name;
-        players=new ArrayList<GameCharacter>();
+        players = new ArrayList<GameCharacter>();
     }
 
     public void addPlayer(GameCharacter player) {

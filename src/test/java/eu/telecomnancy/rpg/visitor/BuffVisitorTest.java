@@ -13,7 +13,7 @@ class BuffVisitorTest {
     void visitWizard() {
         CharacterVisitor v = new BuffVisitor(5);
         Wizard wizard = new Wizard("James");
-        int oldInt =  wizard.getIntelligence();
+        int oldInt = wizard.getIntelligence();
         wizard.accept(v);
         assertEquals(oldInt + 5, wizard.getIntelligence());
     }
@@ -22,7 +22,7 @@ class BuffVisitorTest {
     void visitWarrior() {
         CharacterVisitor v = new BuffVisitor(3);
         Warrior warrior = new Warrior("James");
-        int oldStr =  warrior.getStrength();
+        int oldStr = warrior.getStrength();
         warrior.accept(v);
         assertEquals(oldStr + 3, warrior.getStrength());
     }
@@ -31,7 +31,7 @@ class BuffVisitorTest {
     void visitHealer() {
         CharacterVisitor v = new BuffVisitor(10);
         Healer healer = new Healer("James");
-        int oldWis =  healer.getWisdom();
+        int oldWis = healer.getWisdom();
         healer.accept(v);
         assertEquals(oldWis + 10, healer.getWisdom());
     }

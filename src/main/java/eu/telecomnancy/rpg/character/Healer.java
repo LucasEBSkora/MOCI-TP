@@ -13,7 +13,7 @@ public class Healer extends GameCharacter {
 
     public Healer(String name) {
         super(name);
-        this.wisdom = this.getLevel() * 10+new Random().nextInt(10);
+        this.wisdom = this.getLevel() * 10 + new Random().nextInt(10);
     }
 
     @Override

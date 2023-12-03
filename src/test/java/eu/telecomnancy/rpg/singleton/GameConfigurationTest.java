@@ -2,8 +2,9 @@ package eu.telecomnancy.rpg.singleton;
 
 import org.junit.jupiter.api.Test;
 
-import static eu.telecomnancy.rpg.singleton.GameConfiguration.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static eu.telecomnancy.rpg.singleton.GameConfiguration.getInstance;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class GameConfigurationTest {
 

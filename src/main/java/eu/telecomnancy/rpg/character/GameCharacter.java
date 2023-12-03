@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @Setter
 public abstract class GameCharacter {
     public final String name;
-    public  int health;
+    public int health;
     public int experiencePoints;
     public int level;
 
@@ -24,6 +24,7 @@ public abstract class GameCharacter {
     public ArrayList<Armor> armor;
 
     Strategy strategy;
+
     public GameCharacter(String name) {
         this.name = name;
         this.experiencePoints = 0;

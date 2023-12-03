@@ -10,12 +10,12 @@ public class HealerCreator implements CharacterCreator {
 
         Healer healer = new Healer(name);
 
-        healer.setWisdom(healer.getWisdom() + (level - healer.level)/4);
+        healer.setWisdom(healer.getWisdom() + (level - healer.level) / 4);
         healer.setLevel(level);
-        healer.setHealth(8*healer.level);
-        healer.setExperiencePoints(1000*healer.level);
+        healer.setHealth(8 * healer.level);
+        healer.setExperiencePoints(1000 * healer.level);
         if (isArmed) {
-            healer.setWeapon( new Staff("Staff of healing", 10, level));
+            healer.setWeapon(new Staff("Staff of healing", 10, level));
         }
 
         // Healers are not allowed to wear armor

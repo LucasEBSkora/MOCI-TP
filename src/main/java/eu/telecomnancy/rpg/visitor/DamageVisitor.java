@@ -18,7 +18,7 @@ public class DamageVisitor extends CharacterVisitor {
     public void visitWizard(Wizard character) {
         // Wizard suffers 1.5 damage
         int armor = getBaseArmor(character);
-        int damage = this.damage*3/2;
+        int damage = this.damage * 3 / 2;
         if (damage < armor) {
             return;
         }
@@ -29,7 +29,7 @@ public class DamageVisitor extends CharacterVisitor {
     @Override
     public void visitWarrior(Warrior character) {
         // Warrior benefits from double armor
-        int armor = 2*getBaseArmor(character);
+        int armor = 2 * getBaseArmor(character);
         if (damage < armor) {
             return;
         }
@@ -45,7 +45,7 @@ public class DamageVisitor extends CharacterVisitor {
 
     private int getBaseArmor(GameCharacter character) {
         int armor = 0;
-        for(Armor piece : character.armor) {
+        for (Armor piece : character.armor) {
             armor += piece.defense;
         }
         return armor;

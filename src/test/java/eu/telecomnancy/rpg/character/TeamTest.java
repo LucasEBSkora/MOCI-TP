@@ -1,8 +1,8 @@
 package eu.telecomnancy.rpg.character;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TeamTest {
 
@@ -14,7 +14,8 @@ class TeamTest {
 
     }
 
-    @Test void AddCharacterToTeam() {
+    @Test
+    void AddCharacterToTeam() {
         Team team = new Team("test");
         Wizard character = new Wizard("test");
         team.addPlayer(character);

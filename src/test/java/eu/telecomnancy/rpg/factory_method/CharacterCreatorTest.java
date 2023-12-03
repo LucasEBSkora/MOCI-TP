@@ -7,10 +7,6 @@ import eu.telecomnancy.rpg.character.GameCharacter;
 import eu.telecomnancy.rpg.character.Healer;
 import eu.telecomnancy.rpg.character.Warrior;
 import eu.telecomnancy.rpg.character.Wizard;
-import eu.telecomnancy.rpg.factory_method.CharacterCreator;
-import eu.telecomnancy.rpg.factory_method.HealerCreator;
-import eu.telecomnancy.rpg.factory_method.WarriorCreator;
-import eu.telecomnancy.rpg.factory_method.WizardCreator;
 import eu.telecomnancy.rpg.weapon.Staff;
 import eu.telecomnancy.rpg.weapon.Sword;
 import org.junit.jupiter.api.Test;
@@ -41,7 +37,7 @@ class CharacterCreatorTest {
         assertEquals(30, playerCharacter.health);
         assertTrue(playerCharacter.weapon instanceof Staff);
         assertEquals(1, playerCharacter.armor.size());
-        assert(playerCharacter.armor.get(0) instanceof Robe);
+        assert (playerCharacter.armor.get(0) instanceof Robe);
     }
 
     @Test
@@ -52,9 +48,9 @@ class CharacterCreatorTest {
         assertEquals("Jerry", playerCharacter.name);
         assertEquals(20, playerCharacter.level);
         assertEquals(200, playerCharacter.health);
-        assert(playerCharacter.weapon instanceof Sword);
+        assert (playerCharacter.weapon instanceof Sword);
         assertEquals(2, playerCharacter.armor.size());
-        assert(playerCharacter.armor.get(0) instanceof Helmet);
-        assert(playerCharacter.armor.get(1) instanceof Shield);
+        assert (playerCharacter.armor.get(0) instanceof Helmet);
+        assert (playerCharacter.armor.get(1) instanceof Shield);
     }
 }
