@@ -17,48 +17,30 @@ public class DamageVisitor extends CharacterVisitor {
     @Override
     public void visitWizard(Wizard character) {
         // Wizard suffers 1.5 damage
-        int currentHealth = character.getHealth();
-
         int armor = getBaseArmor(character);
         int damage = this.damage*3/2;
         if (damage < armor) {
             return;
         }
 
-        int finalHealth = currentHealth + armor - damage;
-        if (finalHealth < 0) {
-            finalHealth = 0;
-        }
-        character.setHealth(finalHealth);
+        character.applyDamage(damage - armor);
     }
 
     @Override
     public void visitWarrior(Warrior character) {
         // Warrior benefits from double armor
-        int currentHealth = character.getHealth();
-
         int armor = 2*getBaseArmor(character);
         if (damage < armor) {
             return;
         }
 
-        int finalHealth = currentHealth + armor - damage;
-        if (finalHealth < 0) {
-            finalHealth = 0;
-        }
-        character.setHealth(finalHealth);
+        character.applyDamage(damage - armor);
     }
 
     @Override
     public void visitHealer(Healer character) {
         // healer can't wear armor
-        int currentHealth = character.getHealth();
-        int finalHealth = currentHealth - damage;
-        if (finalHealth < 0) {
-            finalHealth = 0;
-        }
-
-        character.setHealth(finalHealth);
+        character.applyDamage(damage);
     }
 
     private int getBaseArmor(GameCharacter character) {
