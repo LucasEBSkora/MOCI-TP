@@ -1,6 +1,7 @@
 package eu.telecomnancy.rpg.character;
 
 import eu.telecomnancy.rpg.armor.Armor;
+import eu.telecomnancy.rpg.observer.Observable;
 import eu.telecomnancy.rpg.strategy.NeutralStrategy;
 import eu.telecomnancy.rpg.strategy.Strategy;
 import eu.telecomnancy.rpg.visitor.CharacterVisitor;
@@ -14,14 +15,15 @@ import java.util.ArrayList;
 @ToString
 @Getter
 @Setter
-public abstract class GameCharacter {
-    public final String name;
-    public int health;
-    public int experiencePoints;
-    public int level;
+public abstract class GameCharacter extends Observable {
+    final String name;
+    int health;
+    int experiencePoints;
+    int level;
+    boolean alive;
 
-    public Weapon weapon;
-    public ArrayList<Armor> armor;
+    Weapon weapon;
+    ArrayList<Armor> armor;
 
     Strategy strategy;
 
@@ -29,6 +31,7 @@ public abstract class GameCharacter {
         this.name = name;
         this.experiencePoints = 0;
         this.level = 1;
+        this.alive = true;
 
         armor = new ArrayList<>();
         strategy = new NeutralStrategy();
@@ -41,6 +44,7 @@ public abstract class GameCharacter {
         if (health < 0) {
             health = 0;
         }
+        notifyObservers();
     }
 
     public int getDamage() {
@@ -51,5 +55,10 @@ public abstract class GameCharacter {
             damage = weapon.damage * level / 20;
         }
         return strategy.getModifiedDamage(damage);
+    }
+
+    public void addXP(int xp) {
+        experiencePoints += xp;
+        notifyObservers();
     }
 }

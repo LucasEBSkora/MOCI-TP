@@ -45,7 +45,7 @@ public class DamageVisitor extends CharacterVisitor {
 
     private int getBaseArmor(GameCharacter character) {
         int armor = 0;
-        for (Armor piece : character.armor) {
+        for (Armor piece : character.getArmor()) {
             armor += piece.defense;
         }
         return armor;

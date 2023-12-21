@@ -12,16 +12,16 @@ public class WizardCreator implements CharacterCreator {
 
         Wizard wizard = new Wizard(name);
 
-        wizard.setIntelligence(wizard.getIntelligence() + (level - wizard.level) / 4);
+        wizard.setIntelligence(wizard.getIntelligence() + (level - wizard.getLevel()) / 4);
         wizard.setLevel(level);
-        wizard.setHealth(6 * wizard.level);
-        wizard.setExperiencePoints(1000 * wizard.level);
+        wizard.setHealth(6 * wizard.getLevel());
+        wizard.setExperiencePoints(1000 * wizard.getLevel());
         if (isArmed) {
             wizard.setWeapon(new Staff("Staff of magic missiles", 12, level));
         }
 
         if (isArmored) {
-            wizard.armor.add(new Robe("Robe of Protection", level / 8));
+            wizard.getArmor().add(new Robe("Robe of Protection", level / 8));
         }
 
         return wizard;

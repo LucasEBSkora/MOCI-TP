@@ -7,14 +7,12 @@ import eu.telecomnancy.rpg.character.Warrior;
 import eu.telecomnancy.rpg.character.Wizard;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 class DamageVisitorTest {
     @Test
     void visitWizard() {
         CharacterVisitor v = new DamageVisitor(6);
         Wizard wizard = new Wizard("James");
-        wizard.armor.add(new Robe("aaa", 5));
+        wizard.getArmor().add(new Robe("aaa", 5));
         wizard.setHealth(25);
         wizard.accept(v);
         assertEquals(21, wizard.getHealth());
@@ -25,8 +23,8 @@ class DamageVisitorTest {
         CharacterVisitor v = new DamageVisitor(30);
         Warrior warrior = new Warrior("James");
         warrior.setHealth(20);
-        warrior.armor.add(new Shield("a", 10));
-        warrior.armor.add(new Robe("b", 5));
+        warrior.getArmor().add(new Shield("a", 10));
+        warrior.getArmor().add(new Robe("b", 5));
         warrior.accept(v);
         assertEquals(20, warrior.getHealth());
     }
