@@ -6,16 +6,15 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Getter
 public class Team {
-    @Getter
     private final String name;
 
-    @Getter
-    private Collection<GameCharacter> players;
+    private final Collection<GameCharacter> players;
 
     public Team(String name) {
         this.name = name;
-        players = new ArrayList<GameCharacter>();
+        players = new ArrayList<>();
     }
 
     public void addPlayer(GameCharacter player) {

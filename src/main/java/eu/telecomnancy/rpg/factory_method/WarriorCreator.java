@@ -21,8 +21,8 @@ public class WarriorCreator implements CharacterCreator {
         }
 
         if (isArmored) {
-            warrior.getArmor().add(new Helmet("Helmet +1", level / 4));
-            warrior.getArmor().add(new Shield("Shield +2", level / 2));
+            warrior.addArmor(new Helmet("Helmet +1", level / 4));
+            warrior.addArmor(new Shield("Shield +2", level / 2));
         }
 
         return warrior;

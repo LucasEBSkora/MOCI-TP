@@ -1,27 +1,10 @@
 package eu.telecomnancy.rpg.observer;
 
-import java.util.HashSet;
-import java.util.Set;
+public interface Observable {
 
-public abstract class Observable {
+    void notifyObservers();
 
-    Set<Observer> observers;
+    void attach(Observer observer);
 
-    public Observable() {
-        observers = new HashSet<>();
-    }
-
-    public void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update(this);
-        }
-    }
-
-    public void attach(Observer observer) {
-        observers.add(observer);
-    }
-
-    public void detach(Observer observer) {
-        observers.remove(observer);
-    }
+    void detach(Observer observer);
 }

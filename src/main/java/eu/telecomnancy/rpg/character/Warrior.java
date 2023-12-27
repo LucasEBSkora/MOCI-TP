@@ -6,9 +6,9 @@ import lombok.Setter;
 
 import java.util.Random;
 
-public class Warrior extends GameCharacter {
-    @Getter
-    @Setter
+@Setter
+@Getter
+public class Warrior extends BaseCharacter {
     private int strength;
 
     public Warrior(String name) {

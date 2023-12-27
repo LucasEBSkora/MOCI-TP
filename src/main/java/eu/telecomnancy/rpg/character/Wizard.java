@@ -6,9 +6,9 @@ import lombok.Setter;
 
 import java.util.Random;
 
-public class Wizard extends GameCharacter {
-    @Getter
-    @Setter
+@Setter
+@Getter
+public class Wizard extends BaseCharacter {
     private int intelligence;
 
     public Wizard(String name) {
@@ -20,6 +20,4 @@ public class Wizard extends GameCharacter {
     public void accept(CharacterVisitor V) {
         V.visitWizard(this);
     }
-
-
 }

@@ -6,6 +6,8 @@ import eu.telecomnancy.rpg.character.Warrior;
 import eu.telecomnancy.rpg.character.Wizard;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class CharacterVisitorTest {
 
     @Test

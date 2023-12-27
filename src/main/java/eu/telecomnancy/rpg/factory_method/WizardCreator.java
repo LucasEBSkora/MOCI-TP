@@ -21,7 +21,7 @@ public class WizardCreator implements CharacterCreator {
         }
 
         if (isArmored) {
-            wizard.getArmor().add(new Robe("Robe of Protection", level / 8));
+            wizard.addArmor(new Robe("Robe of Protection", level / 4));
         }
 
         return wizard;
