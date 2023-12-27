@@ -1,0 +1,221 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Armor {
+    + public String name
+    + public int defense
+}
+Helmet --|> Armor
+Robe --|> Armor
+Shield --|> Armor
+
+GameCharacter  o--> "0-1" Weapon
+GameCharacter  o--> "0-*" Armor
+
+Interface GameCharacter {
+    {abstract} + String getName()
+    {abstract} + int getHealth()
+    {abstract} + setHealth(int health)
+    {abstract} + int getExperiencePoints()
+    {abstract} + setExperiencePoints(int xp)
+    {abstract} + int getLevel()
+    {abstract} + setLevel(int level)
+    {abstract} + boolean isAlive()
+    {abstract} + setAlive(boolean alive)
+    {abstract} + Weapon getWeapon()
+    {abstract} + setWeapon(Weapon weapon)
+    {abstract} + addArmor(Armor armor)
+    {abstract} + int getBaseArmor()
+    {abstract} + setStrategy(Strategy strategy)
+    {abstract} + Strategy getStrategy()
+    {abstract} + applyDamage(int damage)
+    {abstract} + int getDamage()
+    {abstract} + addXP(int xp)
+    {abstract} + accept(CharacterVisitor V)
+}
+
+BaseCharacter ..|> GameCharacter
+BaseCharacter ..|> Observable
+
+abstract class BaseCharacter {
+    + String getName()
+    + int getHealth()
+    + setHealth(int health)
+    + int getExperiencePoints()
+    + setExperiencePoints(int xp)
+    + int getLevel()
+    + setLevel(int level)
+    + boolean isAlive()
+    + setAlive(boolean alive)
+    + Weapon getWeapon()
+    + setWeapon(Weapon weapon)
+    + addArmor(Armor armor)
+    + int getBaseArmor()
+    + setStrategy(Strategy strategy)
+    + Strategy getStrategy()
+    + applyDamage(int damage)
+    + int getDamage()
+    + addXP(int xp)
+    + accept(CharacterVisitor V)
+    {abstract} + accept(CharacterVisitor v)
+
+    + notifyObservables()
+    + void attach(Observer observer)
+    + void detach(Observer observer)
+}
+
+class Warrior {
+    - int strength
+    + int getStrength()
+    + setStrength(int strength)
+}
+Warrior --|> BaseCharacter
+
+class Wizard {
+    - int intelligence
+    + int getIntelligence()
+    + setIntelligence(int intelligence)
+}
+Wizard --|> BaseCharacter
+
+class Healer {
+    - int wisdom
+    + int getWisdom()
+    + setWisdom(int wisdom)
+}
+Healer --|> BaseCharacter
+
+class Weapon {
+    + String name;
+    + int damage;
+}
+
+class Sword {
+    + int sharpness
+}
+Sword --|> Weapon
+
+class Staff {
+    + int magic
+}
+Staff --|> Weapon
+
+class Wand {
+    + int magic
+}
+Wand --|> Weapon
+
+class Team {
+    - String name
+    + addPlayer(GameCharacter player)
+    + removePlayer(GameCharacter player)
+    + getPlayer(string name)
+    + containsPlayer(GameCharacter player)
+    + containsPlayer(string name)
+    + int size()
+}
+
+Team "0-1" --> "0-*" GameCharacter
+
+class GameConfiguration {
+    {static} - GameConfiguration instance
+    + int difficulty
+    + int maxPartySize
+    {static} + getInstance()
+}
+
+Team ..> GameConfiguration
+
+interface CharacterCreator {
+    {abstract} +GameCharacter createCharacter(String name, int level, boolean isArmed, boolean isArmored)
+}
+
+HealerCreator ..|> CharacterCreator
+WarriorCreator ..|> CharacterCreator
+WizardCreator ..|> CharacterCreator
+
+CharacterCreator ..> GameCharacter
+
+abstract class CharacterVisitor {
+    {abstract} + visitHealer(Healer character)
+    {abstract} + visitWizard(Wizard character)
+    {abstract} + visitWarrior(Warrior character)
+    + visitTeam(Team t)
+}
+
+CharacterVisitor ..> Team
+CharacterVisitor ..> GameCharacter
+
+class BuffVisitor {
+    - int intensity
+}
+BuffVisitor --|> CharacterVisitor
+
+class HealVisitor {
+    - int healAmount
+}
+HealVisitor --|> CharacterVisitor
+
+class DamageVisitor {
+    - int damage
+}
+DamageVisitor --|> CharacterVisitor
+
+interface Strategy {
+    {abstract} + int getModifiedDamage(int damage)
+}
+
+OffensiveStrategy ..|> Strategy
+NeutralStrategy ..|> Strategy
+DefensiveStrategy ..|> Strategy
+
+interface Observer {
+    {abstract} + update(Observable observable)
+}
+LevelUpObserver ..|> Observer
+LevelUpObserver ..> BaseCharacter
+DeathObserver ..|> Observer
+DeathObserver ..> BaseCharacter
+Observer ..> Observable
+interface Observable {
+    {abstract} + notifyObservables()
+    {abstract} + void attach(Observer observer)
+    {abstract} + void detach(Observer observer)
+}
+Observable "*" --> "*" Observer
+
+abstract class CharacterDecorator {
+    + String getName()
+    + int getHealth()
+    + setHealth(int health)
+    + int getExperiencePoints()
+    + setExperiencePoints(int xp)
+    + int getLevel()
+    + setLevel(int level)
+    + boolean isAlive()
+    + setAlive(boolean alive)
+    + Weapon getWeapon()
+    + setWeapon(Weapon weapon)
+    + addArmor(Armor armor)
+    + int getBaseArmor()
+    + setStrategy(Strategy strategy)
+    + Strategy getStrategy()
+    + applyDamage(int damage)
+    + int getDamage()
+    + addXP(int xp)
+    + accept(CharacterVisitor V)
+}
+CharacterDecorator ..|> Observable
+CharacterDecorator ..|> GameCharacter
+CharacterDecorator o--> GameCharacter
+
+class InvincibleDecorator {
+    + applyDamage(int damage)
+}
+InvincibleDecorator --|> CharacterDecorator
+
+class DualWielderDecorator {
+    + int getDamage()
+}
+DualWielderDecorator --|> CharacterDecorator
+@enduml

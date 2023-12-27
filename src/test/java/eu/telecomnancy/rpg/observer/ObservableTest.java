@@ -1,16 +1,15 @@
 package eu.telecomnancy.rpg.observer;
 
+import eu.telecomnancy.rpg.character.BaseCharacter;
+import eu.telecomnancy.rpg.visitor.CharacterVisitor;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ObservableTest {
     @Test
     void testObservable() {
-        ConcreteObservable observable = new ConcreteObservable();
+        ConcreteObservable observable = new ConcreteObservable("ex");
         ConcreteObserver observer = new ConcreteObserver();
 
         observable.callNotify();
@@ -25,29 +24,18 @@ class ObservableTest {
         assertEquals(1, observer.timesNotified);
     }
 
-    static class ConcreteObservable implements Observable {
+    static class ConcreteObservable extends BaseCharacter {
+        public ConcreteObservable(String name) {
+            super(name);
+        }
+
         public void callNotify() {
             notifyObservers();
         }
 
-        final Set<Observer> observers;
+        @Override
+        public void accept(CharacterVisitor V) {
 
-        public ConcreteObservable() {
-            observers = new HashSet<>();
-        }
-
-        public void notifyObservers() {
-            for (Observer observer : observers) {
-                observer.update(this);
-            }
-        }
-
-        public void attach(Observer observer) {
-            observers.add(observer);
-        }
-
-        public void detach(Observer observer) {
-            observers.remove(observer);
         }
     }
 

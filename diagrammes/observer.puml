@@ -21,6 +21,7 @@ abstract class GameCharacter {
     {abstract} + accept(CharacterVisitor v)
     + applyDamage(int damage)
     + int getDamage()
+    + void addXP(int xp)
 }
 
 note bottom of GameCharacter: "Getters and setters for \nall private attributes"

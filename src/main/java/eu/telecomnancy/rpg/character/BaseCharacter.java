@@ -85,6 +85,10 @@ public abstract class BaseCharacter implements GameCharacter {
     }
 
     @Override
+    public Weapon getWeapon() {
+        return this.weapon;
+    }
+    @Override
     public void addArmor(Armor armor) {
         this.armor.add(armor);
     }
@@ -101,6 +105,11 @@ public abstract class BaseCharacter implements GameCharacter {
     @Override
     public void setStrategy(Strategy strategy) {
         this.strategy = strategy;
+    }
+
+    @Override
+    public Strategy getStrategy() {
+        return strategy;
     }
 
     @Override

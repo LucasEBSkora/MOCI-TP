@@ -25,6 +25,7 @@ public interface GameCharacter extends Observable {
 
     void setAlive(boolean alive);
 
+    Weapon getWeapon();
     void setWeapon(Weapon weapon);
 
     void addArmor(Armor armor);
@@ -33,6 +34,7 @@ public interface GameCharacter extends Observable {
 
     void setStrategy(Strategy strategy);
 
+    Strategy getStrategy();
     void applyDamage(int damage);
 
     int getDamage();
@@ -40,5 +42,6 @@ public interface GameCharacter extends Observable {
     void addXP(int xp);
 
     void accept(CharacterVisitor V);
+
 
 }
