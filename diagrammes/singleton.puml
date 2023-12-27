@@ -1,0 +1,81 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Armor {
+    + public String name
+    + public int defense
+}
+Helmet --|> Armor
+Robe --|> Armor
+Shield --|> Armor
+
+GameCharacter "0-1" --> "0-1" Weapon
+GameCharacter "0-1" --> "0-*" Armor
+
+abstract class GameCharacter {
+    - String name
+    - int health
+    - int experiencePoints
+    - int level
+}
+
+note bottom of GameCharacter: "Getters and setters for \nall private attributes"
+
+
+class Warrior {
+    - int strength
+}
+Warrior --|> GameCharacter
+
+class Wizard {
+    - int intelligence
+}
+Wizard --|> GameCharacter
+
+class Healer {
+    - int wisdom
+}
+Healer --|> GameCharacter
+
+class Weapon {
+    + String name;
+    + int damage;
+}
+
+class Sword {
+    + int sharpness
+}
+Sword --|> Weapon
+
+class Staff {
+    + int magic
+}
+Staff --|> Weapon
+
+class Wand {
+    + int magic
+}
+Wand --|> Weapon
+
+class Team {
+    - String name
+    + addPlayer(GameCharacter player)
+    + removePlayer(GameCharacter player)
+    + getPlayer(string name)
+    + containsPlayer(GameCharacter player)
+    + containsPlayer(string name)
+    + int size()
+}
+
+Team "0-1" --> "0-*" GameCharacter
+
+class GameConfiguration {
+    {static} - GameConfiguration instance
+    + int difficulty
+    + int maxPartySize
+    {static} + getInstance()
+}
+
+Team ..> GameConfiguration
+
+@enduml

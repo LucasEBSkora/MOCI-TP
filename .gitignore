@@ -38,3 +38,4 @@ build/
 ### Mac OS ###
 .DS_Store
 /Sujet de TP _ Construction dun jeu de rôle simple avec design patterns.pdf
+diagrammes/plantuml.jar

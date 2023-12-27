@@ -1,5 +1,6 @@
 package eu.telecomnancy.rpg.character;
 
+import eu.telecomnancy.rpg.singleton.GameConfiguration;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -18,7 +19,9 @@ public class Team {
     }
 
     public void addPlayer(GameCharacter player) {
-        players.add(player);
+        if (this.size() < GameConfiguration.getInstance().maxPartySize) {
+            players.add(player);
+        }
     }
 
     public void removePlayer(GameCharacter player) {
