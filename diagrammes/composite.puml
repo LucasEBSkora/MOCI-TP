@@ -116,7 +116,7 @@ class Team {
     + containsPlayer(string name)
     + int size()
 }
-
+Team ..|> GameCharacter
 Team "0-1" --> "0-*" GameCharacter
 
 class GameConfiguration {

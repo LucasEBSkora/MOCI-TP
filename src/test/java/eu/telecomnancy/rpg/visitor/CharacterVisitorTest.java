@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CharacterVisitorTest {
 
     @Test
-    void visitTeam() {
+    void visitTeam() throws Exception {
         Team team = new Team("the jameses");
         CharacterVisitor v = new HealVisitor(6);
         Wizard wizard = new Wizard("James");
@@ -24,7 +24,7 @@ class CharacterVisitorTest {
         team.addPlayer(wizard);
         team.addPlayer(warrior);
         team.addPlayer(healer);
-        v.visitTeam(team);
+        team.accept(v);
         assertEquals(6, wizard.getHealth());
         assertEquals(11, warrior.getHealth());
         assertEquals(4, healer.getHealth());
