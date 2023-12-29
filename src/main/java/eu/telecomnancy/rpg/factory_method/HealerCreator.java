@@ -2,9 +2,23 @@ package eu.telecomnancy.rpg.factory_method;
 
 import eu.telecomnancy.rpg.character.GameCharacter;
 import eu.telecomnancy.rpg.character.Healer;
+import eu.telecomnancy.rpg.observer.Observer;
 import eu.telecomnancy.rpg.weapon.Staff;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HealerCreator implements CharacterCreator {
+    private final List<Observer> observers;
+
+    public  HealerCreator() {
+        observers = new ArrayList<>();
+    }
+
+    public HealerCreator(List<Observer> observers) {
+        this.observers = observers;
+    }
+
     @Override
     public GameCharacter createCharacter(String name, int level, boolean isArmed, boolean isArmored) {
 
@@ -19,6 +33,7 @@ public class HealerCreator implements CharacterCreator {
         }
 
         // Healers are not allowed to wear armor
+        observers.forEach(healer::attach);
 
         return healer;
 

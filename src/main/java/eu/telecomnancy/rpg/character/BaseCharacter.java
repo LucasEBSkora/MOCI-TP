@@ -124,7 +124,9 @@ public abstract class BaseCharacter implements GameCharacter {
     @Override
     public int getDamage() {
         int damage;
-        if (weapon == null) {
+        if (!alive) {
+            damage = 0;
+        } else if (weapon == null) {
             damage = 1;
         } else {
             damage = weapon.damage * level / 20;
